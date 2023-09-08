@@ -25,7 +25,7 @@ marmellataArancia.discountProduct(50);
 marmellataArancia.showPriceHistory();
 
 // Products array
-Product[] products = new Product[6];
+Product[] products = new Product[5];
 products[0] = marmellataArancia;
 products[1] = new Product("Biscotti integrali",
                           "Biscotti integrali ricchi in fibre per tanta bontà e un mix perfetto tra equilibrio e piacere",
@@ -42,11 +42,7 @@ products[3] = new Product("Banana",
 products[4] = new Product("Maionese",
                           "Classica con Olio di Semi di Girasole, Ideale per Sandwich e Tartine",
                            2.29f,
-                           22);
-products[5] = new Product("Maionese",
-                          "Classica con Olio di Semi di Girasole, Ideale per Sandwich e Tartine",
-                           2.29f,
-                           22);
+                           22)
 
 foreach (Product product in products)
 {
