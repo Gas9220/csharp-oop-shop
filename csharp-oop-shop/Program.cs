@@ -1,26 +1,8 @@
-﻿// Product class definition
-public class Product
-{
-    // Attributes
-    private string code;
-    private string name;
-    private string description;
-    private float price;
-    private int vat;
+﻿// Create new product from Product class
+Product marmellataArancia = new Product("Marmellata all'arancia",
+                                        "La marmellata di arance è una deliziosa conserva di frutta che vi permetterà di portare in tavola un pò d'inverno anche in estate!",
+                                        3.99f,
+                                        22);
 
-    // Constructor
-    public Product(string name, string description, float price, int vat) {
-        code = GenerateProductCode();
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.vat = vat; 
-    }
-
-    // Methods
-    string GenerateProductCode()
-    {
-        Random rnd = new Random();
-        return this.code = rnd.Next(00000000, 99999999).ToString();
-    }
-}
+// 8 get digit product code
+marmellataArancia.GetProductCode();
