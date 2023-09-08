@@ -42,7 +42,7 @@ products[3] = new Product("Banana",
 products[4] = new Product("Maionese",
                           "Classica con Olio di Semi di Girasole, Ideale per Sandwich e Tartine",
                            2.29f,
-                           22)
+                           22);
 
 foreach (Product product in products)
 {
