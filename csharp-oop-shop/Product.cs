@@ -10,6 +10,8 @@ public class Product
     public float Price { get; set; }
     public int Vat { get; set; }
 
+    List<float> priceHistory = new List<float>();
+
     // Constructor
     public Product(string name, string description, float price, int vat)
     {
@@ -17,6 +19,7 @@ public class Product
         Name = name;
         Description = description;
         Price = price;
+        priceHistory.Add(price);
         Vat = vat;
     }
 
@@ -42,12 +45,9 @@ public class Product
         Console.WriteLine($"Extended name: {Name} - {code}");
     }
 
-    public double GetVatPrice()
+    public float GetVatPrice()
     {
-        float vatPrice = (Price * (float)Vat) / 100f + Price;
-        double roundedVatPrice = Math.Round(vatPrice, 2);
-
-        return roundedVatPrice;
+        return calculateVatPrice(Price, Vat);
     }
 
     public void GetProductInfo()
@@ -57,17 +57,39 @@ public class Product
                             - Product name: {Name}
                             - Product code: {code}
                             - Product description: {Description}
-                            - Product price(no vat): {Price}
-                            - Product final price: {GetVatPrice()}
+                            - Product price(no vat): {Price}€
+                            - Product final price: {GetVatPrice()}€
                             ");
     }
 
     public void discountProduct(int discountAmount)
     {
-        double originalPrice = GetVatPrice();
-        double discountedPrice = originalPrice - ((originalPrice * discountAmount) / 100f);
-        double roundedDiscountedPrice = Math.Round(discountedPrice, 2);
-        Console.WriteLine($"The {discountAmount}% offer of the week is '{Name}'! Previous price {originalPrice}€, Discounted price {roundedDiscountedPrice}€");
+        float discountedPrice = Price - ((Price * discountAmount) / 100f);
+        float roundedDiscountedPrice = (float)Math.Round(discountedPrice, 2);
+        Price = roundedDiscountedPrice;
+
+        float previousPrice = priceHistory.Last();
+
+        priceHistory.Add(roundedDiscountedPrice);
+
+        Console.WriteLine($"The {discountAmount}% offer of the week is '{Name}'! Previous price was {calculateVatPrice(previousPrice, Vat)}€, Discounted price is {GetVatPrice()}€");
+    }
+
+    public void showPriceHistory()
+    {
+        Console.Write($"{Name} price history: ");
+        foreach (float price in priceHistory)
+        {
+            Console.Write($"{calculateVatPrice(price, Vat)}€ - ");
+        }
+
+        Console.WriteLine();
+    }
+
+    public float calculateVatPrice(float price, int vat)
+    {
+        float vatPrice = (price * vat) / 100f + price;
+        return (float)Math.Round(vatPrice, 2);
     }
 }
 

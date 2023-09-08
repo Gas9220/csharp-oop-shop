@@ -21,6 +21,9 @@ marmellataArancia.GetExtendedName();
 // discount product
 marmellataArancia.discountProduct(50);
 
+// price history of a product
+marmellataArancia.showPriceHistory();
+
 // Products array
 Product[] products = new Product[6];
 products[0] = marmellataArancia;
