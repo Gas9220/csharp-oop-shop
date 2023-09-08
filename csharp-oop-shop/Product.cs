@@ -37,6 +37,11 @@ public class Product
         Console.WriteLine($"{Name} product no vat price is {Price} €");
     }
 
+    public void GetExtendedName()
+    {
+        Console.WriteLine($"Extended name: {Name} - {code}");
+    }
+
     public void GetVatPrice()
     {
         float vatPrice = (Price * (float)Vat) / 100f + Price;

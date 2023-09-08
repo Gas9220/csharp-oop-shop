@@ -13,6 +13,9 @@ marmellataArancia.GetProductCode();
 marmellataArancia.GetVatPrice();
 marmellataArancia.GetNoVatPrice();
 
+// extended name
+marmellataArancia.GetExtendedName();
+
 // Products array
 Product[] products = new Product[6];
 products[0] = marmellataArancia;
