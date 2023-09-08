@@ -42,12 +42,12 @@ public class Product
         Console.WriteLine($"Extended name: {Name} - {code}");
     }
 
-    public string GetVatPrice()
+    public double GetVatPrice()
     {
         float vatPrice = (Price * (float)Vat) / 100f + Price;
         double roundedVatPrice = Math.Round(vatPrice, 2);
-        string stringRoundedVatPrice = roundedVatPrice.ToString();
-        return stringRoundedVatPrice;
+
+        return roundedVatPrice;
     }
 
     public void GetProductInfo()
@@ -60,6 +60,14 @@ public class Product
                             - Product price(no vat): {Price}
                             - Product final price: {GetVatPrice()}
                             ");
+    }
+
+    public void discountProduct(int discountAmount)
+    {
+        double originalPrice = GetVatPrice();
+        double discountedPrice = originalPrice - ((originalPrice * discountAmount) / 100f);
+        double roundedDiscountedPrice = Math.Round(discountedPrice, 2);
+        Console.WriteLine($"The {discountAmount}% offer of the week is '{Name}'! Previous price {originalPrice}€, Discounted price {roundedDiscountedPrice}€");
     }
 }
 

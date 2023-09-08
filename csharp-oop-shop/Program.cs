@@ -18,6 +18,9 @@ Console.WriteLine($"{marmellataArancia.Name} product vat price is {marmellataAra
 // extended name
 marmellataArancia.GetExtendedName();
 
+// discount product
+marmellataArancia.discountProduct(50);
+
 // Products array
 Product[] products = new Product[6];
 products[0] = marmellataArancia;
