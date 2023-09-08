@@ -1,4 +1,6 @@
-﻿// Create new product from Product class
+﻿Console.OutputEncoding = System.Text.Encoding.UTF8; // without this the € character was showed as ?
+
+// Create new product from Product class
 Product marmellataArancia = new Product("Marmellata all'arancia",
                                         "La marmellata di arance è una deliziosa conserva di frutta che vi permetterà di portare in tavola un pò d'inverno anche in estate!",
                                         3.99f,

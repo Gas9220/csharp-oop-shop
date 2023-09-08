@@ -34,7 +34,7 @@ public class Product
 
     public void GetNoVatPrice()
     {
-        Console.WriteLine($"{Name} product no vat price is {Price}€");
+        Console.WriteLine($"{Name} product no vat price is {Price} €");
     }
 
     public void GetVatPrice()
@@ -42,7 +42,7 @@ public class Product
         float vatPrice = (Price * (float)Vat) / 100f + Price;
         double roundedVatPrice = Math.Round(vatPrice, 2);
         string stringRoundedVatPrice = roundedVatPrice.ToString();
-        Console.WriteLine($"{Name} product vat price is {stringRoundedVatPrice}€");
+        Console.WriteLine($"{Name} product vat price is {stringRoundedVatPrice} €");
     }
 }
 
