@@ -29,6 +29,20 @@ public class Product
 
     public void GetProductCode()
     {
-        Console.WriteLine(code);
+        Console.WriteLine($"{Name} product code is {code}");
+    }
+
+    public void GetNoVatPrice()
+    {
+        Console.WriteLine($"{Name} product no vat price is {Price}€");
+    }
+
+    public void GetVatPrice()
+    {
+        float vatPrice = (Price * (float)Vat) / 100f + Price;
+        double roundedVatPrice = Math.Round(vatPrice, 2);
+        string stringRoundedVatPrice = roundedVatPrice.ToString();
+        Console.WriteLine($"{Name} product vat price is {stringRoundedVatPrice}€");
     }
 }
+

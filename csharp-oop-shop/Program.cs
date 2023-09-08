@@ -6,3 +6,7 @@ Product marmellataArancia = new Product("Marmellata all'arancia",
 
 // 8 get digit product code
 marmellataArancia.GetProductCode();
+
+// get price with and without vat
+marmellataArancia.GetVatPrice();
+marmellataArancia.GetNoVatPrice();
