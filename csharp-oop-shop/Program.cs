@@ -1,4 +1,6 @@
-﻿Console.OutputEncoding = System.Text.Encoding.UTF8; // without this the € character was showed as ?
+﻿using System.Xml.Linq;
+
+Console.OutputEncoding = System.Text.Encoding.UTF8; // without this the € character was showed as ?
 
 // Create new product from Product class
 Product marmellataArancia = new Product("Marmellata all'arancia",
@@ -10,8 +12,8 @@ Product marmellataArancia = new Product("Marmellata all'arancia",
 marmellataArancia.GetProductCode();
 
 // get price with and without vat
-marmellataArancia.GetVatPrice();
 marmellataArancia.GetNoVatPrice();
+Console.WriteLine($"{marmellataArancia.Name} product vat price is {marmellataArancia.GetVatPrice()} €");
 
 // extended name
 marmellataArancia.GetExtendedName();
@@ -39,3 +41,8 @@ products[5] = new Product("Maionese",
                           "Classica con Olio di Semi di Girasole, Ideale per Sandwich e Tartine",
                            2.29f,
                            22);
+
+foreach (Product product in products)
+{
+    product.GetProductInfo();
+}

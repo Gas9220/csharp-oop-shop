@@ -42,12 +42,24 @@ public class Product
         Console.WriteLine($"Extended name: {Name} - {code}");
     }
 
-    public void GetVatPrice()
+    public string GetVatPrice()
     {
         float vatPrice = (Price * (float)Vat) / 100f + Price;
         double roundedVatPrice = Math.Round(vatPrice, 2);
         string stringRoundedVatPrice = roundedVatPrice.ToString();
-        Console.WriteLine($"{Name} product vat price is {stringRoundedVatPrice} €");
+        return stringRoundedVatPrice;
+    }
+
+    public void GetProductInfo()
+    {
+        Console.WriteLine($@"
+                            PRODUCT INFO
+                            - Product name: {Name}
+                            - Product code: {code}
+                            - Product description: {Description}
+                            - Product price(no vat): {Price}
+                            - Product final price: {GetVatPrice()}
+                            ");
     }
 }
 
