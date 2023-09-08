@@ -3,19 +3,21 @@ public class Product
 {
     // Attributes
     private string code;
-    private string name;
-    private string description;
-    private float price;
-    private int vat;
+
+    // Properties
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public float Price { get; set; }
+    public int Vat { get; set; }
 
     // Constructor
     public Product(string name, string description, float price, int vat)
     {
         code = GenerateProductCode();
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.vat = vat;
+        Name = name;
+        Description = description;
+        Price = price;
+        Vat = vat;
     }
 
     // Methods
