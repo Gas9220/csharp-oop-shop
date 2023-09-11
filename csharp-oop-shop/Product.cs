@@ -3,6 +3,7 @@ public class Product
 {
     // Attributes
     private string code;
+    List<float> priceHistory = new List<float>();
 
     // Properties
     public string Name { get; set; }
@@ -10,7 +11,6 @@ public class Product
     public float Price { get; set; }
     public int Vat { get; set; }
 
-    List<float> priceHistory = new List<float>();
 
     // Constructor
     public Product(string name, string description, float price, int vat)
@@ -27,7 +27,7 @@ public class Product
     private string GenerateProductCode()
     {
         Random rnd = new Random();
-        return code = rnd.Next(00000000, 99999999).ToString();
+        return code = rnd.Next(0, 99999999).ToString().PadLeft(8, '0');
     }
 
     public void GetProductCode()
